@@ -8,6 +8,7 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
   boot.initrd.availableKernelModules = lib.mkOverride 0 [ ];
+  boot.supportedFilesystems = lib.mkOverride 0 [ ];
 
   sdImage.compressImage = false;
 }

@@ -1,4 +1,6 @@
 { config, pkgs, nixpkgs, lib, ... }: {
+  boot.supportedFilesystems = [ "vfat" "f2fs" "ntfs" "cifs" ];
+
   services.openssh.enable = true;
 
   services.httpd = {
