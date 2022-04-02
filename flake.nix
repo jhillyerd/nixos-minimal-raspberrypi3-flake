@@ -8,7 +8,6 @@
       system = "aarch64-linux";
       modules = [
         ./sd-image-pi3.nix
-        "${nixpkgs}/nixos/modules/config/no-x-libs.nix"
         ./configuration.nix
       ];
     };
