@@ -6,9 +6,11 @@
   outputs = { self, nixpkgs }:
     # List of hosts we wish to build, each should have a corresponding .nix
     # file in the hosts directory.
-    let hosts = [ "mypi3" ];
+    let
+      inherit (nixpkgs.lib) attrsets;
 
-    in with nixpkgs.lib; rec {
+      hosts = [ "mypi3" ];
+    in rec {
       # Convert the list of hosts into a nixosConfigurations attribute set.
       nixosConfigurations = attrsets.genAttrs hosts (host:
         nixpkgs.lib.nixosSystem {
