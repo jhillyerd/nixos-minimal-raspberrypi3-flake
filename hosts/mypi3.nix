@@ -1,8 +1,5 @@
-{ config, pkgs, nixpkgs, lib, ... }: {
-  boot.supportedFilesystems = [ "vfat" "f2fs" "ntfs" "cifs" ];
+{ pkgs, ... }: {
+  services.nginx.enable = true;
 
-  services.openssh.enable = true;
-
-  users.users.root.openssh.authorizedKeys.keys =
-    lib.splitString "\n" (builtins.readFile ./../authorized_keys.txt);
+  networking.firewall.allowedTCPPorts = [ 80 ];
 }

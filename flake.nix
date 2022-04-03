@@ -15,6 +15,7 @@
           system = "aarch64-linux";
           modules = [
             ./sd-image-pi3.nix
+            ./common.nix
             { networking.hostName = host; }
             (./hosts + "/${host}.nix")
           ];
