@@ -1,6 +1,9 @@
 #!/bin/sh
-# deploy.sh <target-host>:
-#  Builds flake locally and deploys to target-host
+# deploy.sh <host-name> root@<target-host>:
+#  Builds the flake for host-name locally and deploys to target-host
 
-nixos-rebuild --flake .#rpi3 --target-host $1 \
+host="$1"
+target="$2"
+
+nixos-rebuild --flake ".#$host" --target-host "$target" \
   --build-host localhost switch

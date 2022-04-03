@@ -4,5 +4,5 @@
   services.openssh.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys =
-    lib.splitString "\n" (builtins.readFile ./authorized_keys.txt);
+    lib.splitString "\n" (builtins.readFile ./../authorized_keys.txt);
 }
